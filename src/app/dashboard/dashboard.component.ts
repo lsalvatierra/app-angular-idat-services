@@ -24,6 +24,9 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['curso'], { relativeTo: this.route });
   }
   
+  onNavigateToStatePage(): void {
+    this.router.navigate(['estado'], { relativeTo: this.route });
+  }
   onLogout(): void{
     //sessionStorage.clear();
     this.authService.logout();

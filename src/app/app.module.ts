@@ -14,6 +14,10 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AuthGuard } from './auth.guard';
+import { EstadoListaComponent } from './dashboard/estados/estado-lista/estado-lista.component';
+import { HttpClientModule } from '@angular/common/http';
+import { EstadoDetalleComponent } from './dashboard/estados/estado-detalle/estado-detalle.component';
+
 
 
 @NgModule({
@@ -25,6 +29,9 @@ import { AuthGuard } from './auth.guard';
     CursoListaComponent,
     CursoDetalleComponent,
     LoginComponent,
+    EstadoListaComponent,
+    EstadoDetalleComponent,
+    
 
   ],
   imports: [
@@ -33,6 +40,7 @@ import { AuthGuard } from './auth.guard';
     FormsModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {path: 'login', component: LoginComponent},
       {
@@ -41,7 +49,9 @@ import { AuthGuard } from './auth.guard';
         children : [
                 {path: 'home', component: HomeComponent},
                 {path: 'curso', component: CursoListaComponent},
-                {path: 'curso/:id', component: CursoDetalleComponent}
+                {path: 'curso/:id', component: CursoDetalleComponent},
+                {path: 'estado', component: EstadoListaComponent},
+                {path: 'estado/:id', component: EstadoDetalleComponent}
               ]
     },
       {path: '', redirectTo: 'login', pathMatch: 'full'},
